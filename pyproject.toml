@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "jogo-das-7-falhas"
+version = "0.1.0"
+description = ""
+authors = ["Alison-Vizoni <alison.vizoni@gmail.com>"]
+readme = "README.md"
+packages = [{include = "jogo_das_7_falhas"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-dotenv = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
