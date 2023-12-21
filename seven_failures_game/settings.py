@@ -19,6 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'lobby',
 ]
 
 MIDDLEWARE = [
@@ -29,9 +31,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
-ROOT_URLCONF = 'jogo_das_7_falhas.urls'
+ROOT_URLCONF = 'seven_failures_game.urls'
 
 TEMPLATES = [
     {
@@ -49,7 +52,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'jogo_das_7_falhas.wsgi.application'
+WSGI_APPLICATION = 'seven_failures_game.wsgi.application'
 
 DATABASES = {
     'default': {
@@ -87,3 +90,5 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOCALE_PATHS = ['locale/']

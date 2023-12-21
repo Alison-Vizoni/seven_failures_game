@@ -1,14 +1,15 @@
 [tool.poetry]
-name = "jogo-das-7-falhas"
+name = "seven-failures-game"
 version = "0.1.0"
 description = ""
 authors = ["Alison-Vizoni <alison.vizoni@gmail.com>"]
 readme = "README.md"
-packages = [{include = "jogo_das_7_falhas"}]
+packages = [{include = "seven_failures_game"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-python-dotenv = "^1.0.0"
+python-dotenv = "==1.0.0"
+django = "==5.0"
 
 
 [build-system]

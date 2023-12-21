@@ -1,1 +1,1 @@
-# jogo_das_7_falhas
+# seven_failures_game
