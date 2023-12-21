@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+
+{% load static %}
+{% load i18n %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Seven Failures Game" %}</title>
+    <link rel="stylesheet" href="{% static 'lobby/css/index_tag.css' %}">
+    <link rel="stylesheet" href="{% static 'lobby/css/index_class.css' %}">
+</head>
+<body>
+<div class="insert-user">
+    <form>
+        <div>
+            <label for="name">{% trans "Name:" %}</label>
+            <input type="text" id="name"/>
+        </div>
+
+        <div>
+            <label for="user">{% trans "User:" %}</label>
+            <input type="text" id="user"/>
+        </div>
+
+        <div>
+            <label for="password">{% trans "password:" %}</label>
+            <input type="text" id="password"/>
+        </div>
+
+        <div>
+            <label for="confirmPassword">{% trans "Confirm password :" %}</label>
+            <input type="text" id="confirmPassword"/>
+        </div>
+
+        <div>
+            <button type="submit">{% trans "Save:" %}</button>
+            <button type="submit">{% trans "Delete:" %}</button>
+            <button type="submit">{% trans "Print:" %}</button>
+            <button type="reset">{% trans "Clear:" %}</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
