@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="{% static 'lobby/css/index_tag.css' %}">
     <link rel="stylesheet" href="{% static 'lobby/css/index_class.css' %}">
 </head>
+
 <body>
 <div class="insert-user">
     <form>
+        <h4>{% trans "Users Register" %}</h4>
         <div>
             <label for="name">{% trans "Name:" %}</label>
             <input type="text" id="name"/>
@@ -35,11 +37,11 @@
             <input type="text" id="confirmPassword"/>
         </div>
 
-        <div>
-            <button type="submit">{% trans "Save:" %}</button>
-            <button type="submit">{% trans "Delete:" %}</button>
-            <button type="submit">{% trans "Print:" %}</button>
-            <button type="reset">{% trans "Clear:" %}</button>
+        <div class="buttons">
+            <button type="submit">{% trans "Save" %}</button>
+            <button type="submit">{% trans "Delete" %}</button>
+            <button type="submit" disabled>{% trans "Print" %}</button>
+            <button type="reset">{% trans "Clear" %}</button>
         </div>
     </form>
 </div>

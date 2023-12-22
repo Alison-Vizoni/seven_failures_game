@@ -1,3 +1,13 @@
 .insert-user {
+    width: 400px;
     margin: 2rem 48rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.insert-user .buttons {
+    background-color: #79482abe;
+    text-align: center;
+    padding: 0 0.5em;
 }
