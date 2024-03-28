@@ -1,5 +1,6 @@
+import django.urls
 from pathlib import Path
-from os import getenv
+from os import getenv, path
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -39,7 +40,7 @@ ROOT_URLCONF = 'seven_failures_game.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

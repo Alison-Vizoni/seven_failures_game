@@ -1,0 +1,33 @@
+{% extends "./base.html" %}
+
+<div class="insert-user">
+    <form>
+        <h4>{% trans "Users Register" %}</h4>
+        <div>
+            <label for="name">{% trans "Name:" %}</label>
+            <input type="text" id="name"/>
+        </div>
+
+        <div>
+            <label for="user">{% trans "User:" %}</label>
+            <input type="text" id="user"/>
+        </div>
+
+        <div>
+            <label for="password">{% trans "password:" %}</label>
+            <input type="text" id="password"/>
+        </div>
+
+        <div>
+            <label for="confirmPassword">{% trans "Confirm password :" %}</label>
+            <input type="text" id="confirmPassword"/>
+        </div>
+
+        <div class="buttons">
+            <button type="submit">{% trans "Save" %}</button>
+            <button type="submit">{% trans "Delete" %}</button>
+            <button type="submit" disabled>{% trans "Print" %}</button>
+            <button type="reset">{% trans "Clear" %}</button>
+        </div>
+    </form>
+</div>

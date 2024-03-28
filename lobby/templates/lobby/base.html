@@ -1,0 +1,22 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "Seven Failures Game" %}</title>
+    <link rel="stylesheet" href="{% static 'lobby/css/tag.css' %}">
+    <link rel="stylesheet" href="{% static 'lobby/css/class.css' %}">
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="icons" href="{% static 'lobby/css/icons' %}">
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+    <h1 class="title">{% trans "7 Failures Game" %}</h1>
+    {% block content %}{% endblock %}
+</body>
+</html>

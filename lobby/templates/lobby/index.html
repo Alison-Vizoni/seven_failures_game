@@ -1,49 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
+{% extends "lobby/base.html" %}
+{% load static i18n %}
 
-{% load static %}
-{% load i18n %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'lobby/css/index/tag.css' %}">
+    <link rel="stylesheet" href="{% static 'lobby/css/index/class.css' %}">
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% trans "Seven Failures Game" %}</title>
-    <link rel="stylesheet" href="{% static 'lobby/css/index_tag.css' %}">
-    <link rel="stylesheet" href="{% static 'lobby/css/index_class.css' %}">
-</head>
+{% block content %}
+    <div class="welcome">
+        <h1>{% trans "Welcome"|upper %}</h1>
+    </div>
 
-<body>
-<div class="insert-user">
-    <form>
-        <h4>{% trans "Users Register" %}</h4>
-        <div>
-            <label for="name">{% trans "Name:" %}</label>
-            <input type="text" id="name"/>
+    <div class="home">
+        <div class="intro-content">
+            <div>
+                <p>
+                    {% blocktrans %}
+                        To better understand the game, carefully read the rules and requirements
+                        by clicking on the buttons below. Then log in and start the game. Good luck!!!
+                    {% endblocktrans %}
+                </p>
+            </div>
+
+            <h2>{% trans "Level 1"|upper %}</h2>
+            <div class="login">
+                <form>
+                    <div>
+                        <label for="username">{% trans "Username:" %}</label>
+                        <input type="text" id="username"/>
+                    </div>
+
+                    <div>
+                        <label for="password">{% trans "Password:" %}</label>
+                        <input type="password" id="password"/>
+                    </div>
+
+                    <div class="button-container">
+                        <button type="submit">{% trans "Start" %}</button>
+                    </div>
+                </form>
+
+                <div class="icons">
+                    <div>
+                        <button>
+                            <img src="../../static/lobby/icons/list-columns-reverse.svg" alt="Requirements list.">
+                        </button>
+                        <p>{% trans "Requirements" %}</p>
+                    </div>
+
+                    <div>
+                        <button>
+                            <img src="../../static/lobby/icons/question-circle.svg" alt="Rules.">
+                        </button>
+                        <p>{% trans "Rules" %}</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div>
-            <label for="user">{% trans "User:" %}</label>
-            <input type="text" id="user"/>
-        </div>
+        <div class="ranking">
+            <table title="ranking">
+                <tr>
+                    <th colspan="3">{% trans 'ranking'|upper %}</th>
+                </tr>
 
-        <div>
-            <label for="password">{% trans "password:" %}</label>
-            <input type="text" id="password"/>
-        </div>
+                <tr class="field-names">
+                    <th>{% trans 'Position' %}</td>
+                    <th style="width: 60%;">{% trans 'Name' %}</td>
+                    <th>{% trans 'Points' %}</td>
+                </tr>
 
-        <div>
-            <label for="confirmPassword">{% trans "Confirm password :" %}</label>
-            <input type="text" id="confirmPassword"/>
+                <tr>
+                    <th>1</td>
+                    <th>Tester</td>
+                    <th>100</td>
+                </tr>
+            </table>
         </div>
-
-        <div class="buttons">
-            <button type="submit">{% trans "Save" %}</button>
-            <button type="submit">{% trans "Delete" %}</button>
-            <button type="submit" disabled>{% trans "Print" %}</button>
-            <button type="reset">{% trans "Clear" %}</button>
-        </div>
-    </form>
-</div>
-</body>
-</html>
+    </div>
+{% endblock %}

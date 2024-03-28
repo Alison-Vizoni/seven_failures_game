@@ -1,0 +1,64 @@
+.welcome {
+    text-align: center;
+    font-size: x-large;
+    padding-top: 1em;
+}
+
+.home {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 6em;
+    font-size: 1.5em;
+}
+
+.intro-content {
+    text-align: center;
+    padding: 1em;
+}
+
+.login {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.icons {
+    display: grid;
+    justify-content: space-between;
+}
+
+.icons img {
+    width: 2em;
+    padding: .2em;
+}
+
+.icons button {
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    margin-top: .4em;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: .5em;
+}
+
+.ranking {
+    text-align: center;
+    padding: 1em;
+}
+
+.ranking table, td, th {
+    border: 1px solid black;
+}
+
+.ranking table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.field-names {
+    background-color: rgb(56, 170, 126);
+    color: white;
+}
