@@ -23,8 +23,9 @@
         </div>
 
         <h2>{% trans "Level 1"|upper %}</h2>
+        <h4></h4>
         <div class="login" >
-            <form action="{% url 'lobby_login' %}" method="post">
+            <form action="{% url 'lobby_login' %}" method="post" class="form-login">
                 <div>
                     <label for="username">{% trans "Username:" %}</label>
                     <input required type="text" id="username" name="username"/>
@@ -78,4 +79,26 @@
         </table>
     </div>
 </div>
+
+<script>
+    $('form-login').on('submit', function(event){
+        event.preventDefault();
+        console.log("submit");
+        $.ajax({
+            type: 'POST',
+            url: "{% url 'lobby_login' %}",
+            data: {
+                username: $('#username').val(),
+                password: $('#password').val(),
+            },
+            success: function(data) {
+                document.write(data);
+            },
+            error: function(data) {
+                $("h4").html(data.responseText);
+            }
+        });
+        return false;
+    });
+</script>
 {% endblock %}
