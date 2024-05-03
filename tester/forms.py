@@ -1,16 +1,21 @@
 from django import forms
 
+from tester.models import Tester
+
 
 class TesterForm(forms.Form):
     username = forms.CharField(max_length=20)
-    password = forms.CharField(max_length=128)
+    password = forms.CharField(widget=forms.PasswordInput())
 
-    def is_valid():
-        if not all([self.username, self.password, isinstance(username, str), isinstance(password, str)]):
-            return False
+    def clean(self):
+        super().clean()
+
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
 
         try:
-            tester = Tester.objects.get(username=self.username, password=self.password)
+            tester = Tester.objects.get(username=username, password=password)
         except Tester.DoesNotExist:
-            return HttpResponse("Username or password incorrectly.", status=404)
+            raise forms.ValidationError("Username or password incorrectly.", code='invalid')
 
+        # TODO validate password

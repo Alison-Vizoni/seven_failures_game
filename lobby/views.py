@@ -1,17 +1,14 @@
-import django
-from django.contrib.auth.hashers import make_password
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 
-from tester.models import Tester
 from tester.forms import TesterForm
 
 
 @csrf_exempt
 def home(request):
-    return render(request, 'lobby/index.html')
+    tester_form = TesterForm()
+    return render(request, 'lobby/index.html', {'form': tester_form})
 
 
 @require_http_methods(['POST'])
@@ -35,13 +32,10 @@ def login(request):
     if form.is_valid():
         return redirect('show_games')
 
-    return
+    form = TesterForm()
+    return render(request, 'lobby/index.html', {'form': form})
 
 
 @csrf_exempt
 def show_games(request):
     return render(request, 'lobby/show_games.html')
-
-
-def _validate_token(token):
-    pass
