@@ -39,11 +39,9 @@
                 </div>
 
                 {% if form.non_field_errors %}
-                    <ul>
                     {% for error in form.non_field_errors %}
-                        <li>{{ error }}</li>
+                        <p>{{ error }}</p>
                     {% endfor %}
-                    </ul>
                 {% endif %}
 
                 <div class="button-container">

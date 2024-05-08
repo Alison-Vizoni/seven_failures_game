@@ -1,7 +1,10 @@
+from urllib.parse import urlencode
+
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 
+from lobby.utils import create_access_token
 from tester.forms import TesterForm
 
 
@@ -14,25 +17,14 @@ def home(request):
 @require_http_methods(['POST'])
 @csrf_exempt
 def login(request):
-    # data = request.POST.dict()
-    # username = data.get('username')
-    # password = data.get('password')
-
-    # if not all([username, password, isinstance(username, str), isinstance(password, str)]):
-    #     pass
-
-    # try:
-    #     tester = Tester.objects.get(username=username, password=password)
-    # except Tester.DoesNotExist:
-    #     return HttpResponse("Username or password incorrectly.", status=404)
-
-    # make_password()
-
     form = TesterForm(request.POST)
     if form.is_valid():
-        return redirect('show_games')
+        token = create_access_token(form.username)
+        url = '/games/?' + urlencode({
+            'token': token
+        })
+        return redirect(url)
 
-    form = TesterForm()
     return render(request, 'lobby/index.html', {'form': form})
 
 
